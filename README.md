@@ -1,1 +1,1 @@
-# gdax-integration
+# GDAX Integration and Trade Simulation
