@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92219D4A-FBD9-4CF4-8D62-5EAC5B6CCEAD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TradingSimulator</RootNamespace>
+    <AssemblyName>TradingSimulator</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AssetBalanceIsNegativeException.cs" />
+    <Compile Include="Account\AccountBalanceIsNegativeException.cs" />
+    <Compile Include="Account\SimulatedAccount.cs" />
+    <Compile Include="EMARunner.cs" />
+    <Compile Include="Engine\SimulationEngine.cs" />
+    <Compile Include="Factory\SimulatorFactory.cs" />
+    <Compile Include="Logging\SimulationLogger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimulationResult.cs" />
+    <Compile Include="SimulationRunner.cs" />
+    <Compile Include="Trader\Order.cs" />
+    <Compile Include="Trader\SimulatedTrader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataSpacerPipe\DataSpacerPipe.csproj">
+      <Project>{4E3C6735-8AD9-4541-B0CC-C8C54470DE1E}</Project>
+      <Name>DataSpacerPipe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmaCalculator\EmaCalculator.csproj">
+      <Project>{F2D5FE8D-1130-43AE-B501-1DC48EBF449A}</Project>
+      <Name>EmaCalculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GDAX.Models\GDAX.Models.csproj">
+      <Project>{9A5D23C7-C54A-4B3F-94FB-FC7F18E936FE}</Project>
+      <Name>GDAX.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimulationTradeReader\SimulationTradeReader.csproj">
+      <Project>{8D7607AA-D10F-4386-80C1-4D5829ACA147}</Project>
+      <Name>SimulationTradeReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradingPlatform.Common\TradingPlatform.Common.csproj">
+      <Project>{64E6125F-A817-4634-85DD-D055EF32BBA4}</Project>
+      <Name>TradingPlatform.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradingPlatform.FileUtils\TradingPlatform.FileUtils.csproj">
+      <Project>{25C0161A-1B9A-4F39-BE58-9C6F17C19B00}</Project>
+      <Name>TradingPlatform.FileUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UpDownDecisionMakerPipe\UpDownDecisionMakerPipe.csproj">
+      <Project>{D320A2E7-ECF0-4E2A-A084-B382B222F02E}</Project>
+      <Name>UpDownDecisionMakerPipe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
