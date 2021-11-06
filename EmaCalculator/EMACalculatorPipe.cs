@@ -39,7 +39,7 @@ namespace EmaCalculator
 
         newEmaTrades.Add(_lastEMAValue);
       }
-      
+
       ///Calculate consecutive EMA values
       foreach (var trade in trades.Skip(recToSkip))
       {
@@ -62,7 +62,7 @@ namespace EmaCalculator
 
         newEmaTrades.Add(_lastEMAValue);
       }
-      
+
       return newEmaTrades;
     }
 

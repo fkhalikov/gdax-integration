@@ -7,11 +7,11 @@ using Newtonsoft.Json.Linq;
 
 namespace Boukenken.Gdax
 {
-    public interface IProductClient
-    {
-        Task<ApiResponse<IEnumerable<Product>>> GetProductsAsync();
-        Task<ApiResponse<ProductTicker>> GetProductTickerAsync(string productId);
-        Task<ApiResponse<OrderBook>> GetOrderBookAsync(string productId, int level = 1);
+	public interface IProductClient
+	{
+		Task<ApiResponse<IEnumerable<Product>>> GetProductsAsync();
+		Task<ApiResponse<ProductTicker>> GetProductTickerAsync(string productId);
+		Task<ApiResponse<OrderBook>> GetOrderBookAsync(string productId, int level = 1);
 		Task<List<Candle>> GetHistoricRatesAsync(string i_product_id, DateTime i_start, DateTime i_end, int i_granularity);
 	}
 
@@ -82,7 +82,7 @@ namespace Boukenken.Gdax
 		//		}
 		public async Task<List<Candle>> GetHistoricRatesAsync(string i_product_id, DateTime i_start, DateTime i_end, int seconds)
 		{
-			var CandleData =  await this.GetResponseAsync<JArray>(
+			var CandleData = await this.GetResponseAsync<JArray>(
 					new ApiRequest(HttpMethod.Get, $"/products/{i_product_id}/candles?start={i_start.ToString("yyyy-MM-ddTHH:mm:00.00000Z")}&end={i_end.ToString("yyyy-MM-ddTHH:mm:00.00000Z")}&granularity={seconds}")
 					);
 			Candle c = new Candle();

@@ -3,20 +3,20 @@ using TradingPlatform.Common.Extensions;
 
 namespace TradingSimulator
 {
-    class Program
+  class Program
+  {
+
+
+    static void Main(string[] args)
     {
-       
+      SimulationRunner sr = new SimulationRunner();
 
-        static void Main(string[] args)
-        {
-             SimulationRunner sr = new SimulationRunner();
+      sr.Run();
 
-             sr.Run();
+      Console.ReadLine();
+      //EMARunner emaRunner = new EMARunner();
 
-            Console.ReadLine();
-            //EMARunner emaRunner = new EMARunner();
-
-            //emaRunner.Run();
-        }
+      //emaRunner.Run();
     }
+  }
 }

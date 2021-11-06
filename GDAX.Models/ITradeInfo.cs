@@ -2,20 +2,18 @@
 
 namespace GDAX.Models
 {
-    public interface ITradeInfo
-    {
-       DateTime Time { get;  }
+  public interface ITradeInfo
+  {
+    DateTime Time { get; }
 
-       int TradeId { get;  }
+    int TradeId { get; }
 
-       decimal Price { get; }
+    decimal Price { get; }
 
-        decimal OriginalPrice { get; }
+    decimal OriginalPrice { get; }
 
-        decimal Size { get;  }
+    decimal Size { get; }
 
-       TradeSide Side { get;  }
-
-
-    }
+    TradeSide Side { get; }
+  }
 }
