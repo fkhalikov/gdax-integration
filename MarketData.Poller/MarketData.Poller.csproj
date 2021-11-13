@@ -12,6 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MarketData.Common\MarketData.Common.csproj" />
     <ProjectReference Include="..\Storage.Azure\Storage.Azure.csproj" />
+    <ProjectReference Include="..\Yahoo.API\Yahoo.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
 </Project>

@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MarketData.Poller.Entities;
 using MarketData.Poller.Services;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Storage.Azure;
 
 namespace MarketData.Poller
 {
@@ -30,7 +27,7 @@ namespace MarketData.Poller
       {
         foreach (var service in services)
         {
-          service.ExecuteAsync();
+          await service.ExecuteAsync();
         }
 
         _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);

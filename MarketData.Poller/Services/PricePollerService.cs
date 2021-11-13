@@ -1,9 +1,8 @@
-﻿using MarketData.Poller.Entities;
+﻿using MarketData.Common;
 using Storage.Azure;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
+using Yahoo.API;
 
 namespace MarketData.Poller.Services
 {
@@ -11,21 +10,25 @@ namespace MarketData.Poller.Services
   {
     private TableManager<StockConfiguration> tableManager;
 
+    public YahooFinanceService yahooFinanceService { get; }
+
     public PricePollerService()
     {
       tableManager = new TableManager<StockConfiguration>("StockConfiguration");
+
+      yahooFinanceService = new YahooFinanceService();
     }
 
-    public Task ExecuteAsync()
+    public async Task ExecuteAsync()
     {
       var data = tableManager.GetAll();
 
-      foreach(var d in data)
+      foreach(var config in data)
       {
-        Console.WriteLine(d);
+        
       }
 
-      return Task.CompletedTask;
+      var stocks = await yahooFinanceService.PullStocksAsync(data.Select(x => x.Ticker).ToArray()); 
     }
   }
 }

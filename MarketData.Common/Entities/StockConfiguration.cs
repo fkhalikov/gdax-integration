@@ -2,11 +2,13 @@
 using Azure.Data.Tables;
 using System;
 
-namespace MarketData.Poller.Entities
+namespace MarketData.Common
 {
-  public class StockConfiguration: ITableEntity
+  public class StockConfiguration : ITableEntity
   {
     public string Ticker { get; set; }
+
+    public bool IsNew { get; set; }
 
     public DateTimeOffset? Timestamp { get; set; }
     public string PartitionKey { get; set; }
