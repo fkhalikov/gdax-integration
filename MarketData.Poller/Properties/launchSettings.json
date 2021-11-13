@@ -4,7 +4,7 @@
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development",
-        "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=marketdata11;AccountKey=xIbMf2UCC8rMg4O06c53RQXd8im66pCpQCppm3J1AdYunOBCTWiWwWu+E7PKGoy4hP97zkbEvc0f0V4XQpu7sA==;EndpointSuffix=core.windows.net"
+        "AZURE_STORAGE_CONNECTION_STRING": ""
       }
     },
     "Docker": {
