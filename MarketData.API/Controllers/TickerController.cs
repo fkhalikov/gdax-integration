@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MarketData.API.Models;
 using MarketData.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,16 @@ namespace MarketData.API.Controllers
     public IEnumerable<StockConfiguration> Get()
     {
       return tableManager.GetAll();
+    }
+
+    [HttpPost]
+    public StockConfiguration Add(StockConfigurationInput input)
+    {
+      var value = StockConfiguration.New(input.Ticker);
+
+      tableManager.Add(value);
+
+      return value;
     }
   }
 }

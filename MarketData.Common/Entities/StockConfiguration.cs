@@ -14,5 +14,20 @@ namespace MarketData.Common
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public ETag ETag { get; set; }
+
+    public static StockConfiguration New(string ticker)
+    {
+      var tag = Guid.NewGuid();
+
+      return new StockConfiguration()
+      {
+        IsNew = true,
+        ETag = new ETag($"{tag}"),
+        RowKey = $"{tag}",
+        PartitionKey = string.Empty,
+        Ticker = ticker,
+        Timestamp = DateTime.UtcNow
+      };
+    }
   }
 }

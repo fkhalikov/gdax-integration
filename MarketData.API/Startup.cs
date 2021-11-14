@@ -40,7 +40,7 @@ namespace MarketData.API
 
       app.UseRouting();
 
-      app.UseCors((b) =>b.WithOrigins("http://localhost:19006"));
+      app.UseCors((b) =>b.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:19006"));
 
       app.UseAuthorization();
 

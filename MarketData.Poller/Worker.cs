@@ -31,7 +31,7 @@ namespace MarketData.Poller
         }
 
         _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-        await Task.Delay(15000, stoppingToken);
+        await Task.Delay(30 * 1000 * 60 /* 30 min */, stoppingToken);
       }
     }
   }
